@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!--
+  Apos 4 scroll-story landing page - sanitized portfolio copy.
+  Static build of the production PHP page: tag manager, the CRM lead endpoint,
+  the third-party accessibility widget and every real phone number were removed.
+  The form validates like production but never sends anything (demo-form.js).
+-->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apos 4: מערכת ההליכה החדשה של אפוסתרפיה</title>
+<meta name="description" content="Apos 4, מערכת ההליכה החדשה של אפוסתרפיה: טיפול לא ניתוחי ולא תרופתי לכאבי ברכיים, גב, ירך וקרסול. בהשתתפות כל קופות החולים. בדיקת התאמה ללא עלות.">
+<!-- portfolio copy: kept out of search so it never competes with the live company page -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://galasulin.github.io/apos4-scroll-landing/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="אפוסתרפיה">
+<meta property="og:title" content="Apos 4: מערכת ההליכה החדשה של אפוסתרפיה">
+<meta property="og:description" content="Apos 4, מערכת ההליכה החדשה של אפוסתרפיה: טיפול לא ניתוחי ולא תרופתי לכאבי ברכיים, גב, ירך וקרסול. בהשתתפות כל קופות החולים. בדיקת התאמה ללא עלות.">
+<meta property="og:url" content="https://galasulin.github.io/apos4-scroll-landing/">
+<meta property="og:image" content="https://galasulin.github.io/apos4-scroll-landing/img/og-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apos 4: מערכת ההליכה החדשה של אפוסתרפיה">
+<meta name="twitter:description" content="Apos 4, מערכת ההליכה החדשה של אפוסתרפיה: טיפול לא ניתוחי ולא תרופתי לכאבי ברכיים, גב, ירך וקרסול. בהשתתפות כל קופות החולים. בדיקת התאמה ללא עלות.">
+<meta name="twitter:image" content="https://galasulin.github.io/apos4-scroll-landing/img/og-share.jpg">
+<meta name="theme-color" content="#eaedf2">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&family=Secular+One&display=swap">
+<link rel="preload" as="image" href="./frames/rot-a/01.webp" type="image/webp" fetchpriority="high">
+<style>
+/* layout: a scroll story in pinned chapters (rotate, assemble, how it works, proof) that ends on one form.
+   Studio palette: a calm light grey ground, white cards, navy ink, the logo red only for actions.
+   Type sizes kept moderate so every screen reads at a glance. */
+:root{
+  --ground:#eaedf2; --ground-2:#f4f6f9; --card:#ffffff; --ink:#0b1a3a; --mut:#53627c; --line:#d8dee8;
+  --blue:#0a4fc4; --navy:#0a1f4d; --red:#d8463b; --red-deep:#c03a30;
+  --display:'Secular One','Heebo',system-ui,sans-serif;
+  --body:'Heebo',system-ui,'Segoe UI',Arial,sans-serif;
+  --ease:cubic-bezier(.23,1,.32,1);
+  --gutter:max(20px,env(safe-area-inset-left,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.65 var(--body);direction:rtl;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;margin:0;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* ---------- top bar ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:var(--ground);border-bottom:1px solid transparent;transition:border-color .3s,background-color .3s}
+.bar.scrolled{border-bottom-color:var(--line);background:#fff}
+.bar__in{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.bar__logo{height:26px;width:auto}
+.bar__side{display:flex;align-items:center;gap:14px}
+.bar__tel{font:700 16px var(--body);color:var(--ink);text-decoration:none;direction:ltr;white-space:nowrap}
+.bar__tel b{color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;text-decoration:none;
+  font:700 16px var(--body);color:#fff;background:var(--red);padding:11px 22px;border-radius:999px;transition:transform .16s var(--ease),background-color .2s}
+.btn:hover{background:var(--red-deep)}
+.btn:active{transform:scale(.97)}
+.btn--lg{font-size:18px;padding:15px 30px}
+@media (max-width:520px){.bar__tel{display:none}.btn{font-size:15px;padding:10px 18px}}
+
+/* ---------- pinned chapters ---------- */
+.pin{position:relative}
+.pin__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.seq{position:absolute;inset:0;display:grid;place-items:end center;padding-bottom:calc(3svh + env(safe-area-inset-bottom,0px))}
+.seq canvas{width:var(--shoe,min(88vw,66svh));height:var(--shoe,min(88vw,66svh))}
+
+/* chapter 1: the 360 */
+#ch-rotate{height:320vh}
+.hero-copy{translate:0 var(--by,0);position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:calc(104px + env(safe-area-inset-top,0px)) var(--gutter) 0;pointer-events:none}
+.kicker{font:700 15px var(--body);color:var(--red)}
+.hero-title{font-size:clamp(40px,5.6vw,76px);margin-top:10px}
+.hero-title span{color:var(--blue)}
+.hero-sub{font:400 clamp(17px,1.5vw,20px)/1.55 var(--body);color:var(--mut);margin-top:12px;max-width:38ch}
+.hero-cta{margin-top:22px;pointer-events:auto}
+.beats{position:absolute;inset:0;pointer-events:none}
+.beat{position:absolute;translate:var(--bx,0) var(--by,0);width:min(320px,80vw);background:var(--card);border-radius:20px;padding:18px 22px;
+  font:700 clamp(19px,1.7vw,22px)/1.3 var(--body);color:var(--ink);opacity:0}
+.beat small{display:block;font:400 16px/1.5 var(--body);color:var(--mut);margin-top:6px}
+.b-r{right:max(7vw,var(--gutter))}.b-l{left:max(7vw,var(--gutter))}
+#ch-rotate .beat:nth-child(1){top:40%}#ch-rotate .beat:nth-child(2){top:32%}#ch-rotate .beat:nth-child(3){top:46%}
+.scrollhint{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;translate:-50% 0;font:500 14px var(--body);color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollhint span{width:2px;height:30px;background:var(--mut);transform-origin:top;animation:drip 1.8s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* chapter 2: the sole */
+#ch-pods{height:340vh;background:var(--ground-2)}
+#ch-pods .pin__stage{background:var(--ground-2)}
+.pods-head{translate:0 var(--by,0);position:absolute;top:calc(104px + env(safe-area-inset-top,0px));right:0;left:0;text-align:center;padding-inline:var(--gutter);pointer-events:none}
+.pods-head h2{font-size:clamp(36px,4.8vw,64px)}
+.pods-head p{font-size:clamp(17px,1.5vw,20px);color:var(--mut);margin-top:8px}
+#ch-pods .beat:nth-child(1){top:42%}#ch-pods .beat:nth-child(2){top:54%}#ch-pods .beat:nth-child(3){top:44%}
+@media (max-width:760px){
+  .beat{left:50%!important;right:auto!important;--bx:-50%;top:calc(84px + env(safe-area-inset-top,0px))!important;width:calc(100vw - 40px);padding:14px 18px}
+  .hero-copy,.pods-head{padding-top:calc(88px + env(safe-area-inset-top,0px))}
+  .pods-head{top:0}
+  .seq canvas{width:min(92vw,52svh);height:min(92vw,52svh)}
+}
+
+/* chapter 3: how it works (sticky media + steps) */
+#ch-how{background:var(--ground);padding-block:clamp(80px,10vw,130px) 40px}
+.how{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.how__media{position:sticky;top:calc(96px + env(safe-area-inset-top,0px));aspect-ratio:4/5;max-height:calc(100svh - 130px);width:100%;border-radius:24px;overflow:hidden;background:#dfe4ec}
+.how__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;scale:1.05;transition:opacity .6s var(--ease),scale 1.4s var(--ease)}
+.how__media img.on{opacity:1;scale:1}
+.how__steps{display:grid;min-width:0}
+.how__title{font-size:clamp(34px,4vw,52px);padding-top:6px}
+.step{min-height:72svh;display:flex;flex-direction:column;justify-content:center;gap:14px;padding-block:20px}
+.step h3{font-size:clamp(28px,3vw,40px)}
+.step p{font-size:18px;color:var(--mut);max-width:42ch}
+.step .quote{color:var(--ink);font-weight:500;background:var(--card);border-radius:16px;padding:16px 20px}
+.step .mobile-img{display:none;border-radius:18px;aspect-ratio:3/2;object-fit:cover;width:100%}
+@media (max-width:860px){
+  .how{grid-template-columns:1fr}.how__media{display:none}
+  .step{min-height:auto;padding-block:26px}.step .mobile-img{display:block}
+}
+
+/* proof */
+#ch-proof{background:var(--ground-2);padding-block:clamp(80px,9vw,120px)}
+.sec-head{display:grid;gap:10px;margin-bottom:clamp(28px,4vw,48px);max-width:720px}
+.sec-head h2{font-size:clamp(34px,4vw,52px)}
+.sec-head p{color:var(--mut);font-size:18px}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.num{background:var(--card);border-radius:20px;padding:26px 24px;display:grid;gap:6px}
+.num b{font:400 clamp(38px,3.8vw,54px)/1 var(--display);direction:ltr;text-align:right;font-variant-numeric:tabular-nums;color:var(--navy)}
+.num b em{font-style:normal;color:var(--red)}
+.num span{color:var(--mut);font-size:16px}
+@media (max-width:860px){.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.num{padding:20px 18px}}
+.made{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:16px;background:var(--card);border-radius:20px;padding:clamp(20px,3vw,36px)}
+.made img{border-radius:12px}
+.made h3{font-size:clamp(24px,2.4vw,32px);margin-bottom:8px}
+.made p{color:var(--mut);font-size:17px}
+@media (max-width:860px){.made{grid-template-columns:1fr}}
+
+/* versions */
+#ch-versions{background:var(--ground);padding-block:clamp(80px,9vw,120px)}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{margin:0;background:var(--card);border-radius:24px;overflow:hidden}
+.card__img{overflow:hidden;aspect-ratio:3/2}
+.card img{width:100%;height:100%;object-fit:cover;transition:scale 1s var(--ease)}
+.card:hover img{scale:1.04}
+.card figcaption{padding:20px 24px 24px}
+.card figcaption b{display:block;font:400 clamp(24px,2.4vw,30px)/1.2 var(--display)}
+.card figcaption span{font-size:16px;color:var(--mut)}
+@media (max-width:700px){.duo{grid-template-columns:1fr}}
+.device{margin-top:16px;display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;background:var(--card);border-radius:24px;padding:clamp(20px,3vw,36px)}
+.device img{border-radius:16px}
+.device h3{font-size:clamp(24px,2.4vw,32px);margin-bottom:10px}
+.device p{color:var(--mut);font-size:17px}
+@media (max-width:860px){.device{grid-template-columns:1fr}}
+
+/* lead form */
+#lead{background:var(--ground-2);padding-block:clamp(80px,9vw,120px)}
+.lead{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.lead h2{font-size:clamp(36px,4.4vw,58px)}
+.lead p{color:var(--mut);font-size:18px;margin-top:12px;max-width:40ch}
+.lead .tel{display:inline-block;margin-top:22px;font:400 40px var(--display);direction:ltr;color:var(--ink)}
+.lead .tel b{color:var(--red)}
+form{background:var(--card);color:var(--ink);border-radius:24px;padding:clamp(22px,3vw,34px);display:grid;gap:14px}
+form h3{font:700 21px var(--body)}
+label{display:grid;gap:6px;font:500 15px var(--body);color:var(--mut)}
+input,select{font:500 17px var(--body);color:var(--ink);background:var(--ground-2);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;width:100%;direction:rtl;transition:border-color .2s}
+input:focus,select:focus{border-color:var(--blue);outline:none}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--mut)}
+.consent input{width:auto;margin-top:5px}
+@media (max-width:860px){.lead{grid-template-columns:1fr}}
+footer{background:var(--navy);color:#b4c2dc;font-size:14px;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
+
+/* reveal for ordinary sections */
+.js .rv{opacity:0;translate:0 24px;transition:opacity .6s var(--ease),translate .7s var(--ease)}
+.js .rv.in{opacity:1;translate:0 0}
+.nums .rv:nth-child(2),.duo .rv:nth-child(2){transition-delay:.07s}.nums .rv:nth-child(3){transition-delay:.14s}.nums .rv:nth-child(4){transition-delay:.21s}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;translate:none;transition:none}
+  #ch-rotate,#ch-pods{height:auto}
+  .pin__stage{position:relative;height:auto;min-height:100svh}
+  .scrollhint span{animation:none}
+}
+
+/* ===== round 2: slower, smoother story; clearer beats; badges ===== */
+#ch-rotate{height:480vh}
+#ch-pods{height:480vh}
+.beat{width:min(370px,80vw);background:var(--navy);color:#fff;border-radius:20px;padding:22px 26px;
+  font:700 clamp(21px,1.9vw,26px)/1.3 var(--body);scale:var(--sc,1)}
+.beat small{color:#c9d5ee;font-size:17px;margin-top:8px}
+.rail{position:absolute;right:max(14px,1.6vw);top:50%;translate:0 -50%;display:grid;gap:10px;opacity:var(--ro,0);transition:opacity .3s}
+.rail i{width:8px;height:8px;border-radius:50%;background:#b9c3d3;transition:background-color .3s,scale .3s var(--ease)}
+.rail i.on{background:var(--red);scale:1.4}
+@media (max-width:760px){
+  .beat{padding:16px 20px;font-size:20px}
+  .beat small{font-size:16px}
+  .rail{top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));right:50%;translate:50% 0;grid-auto-flow:column}
+  .seq{padding-bottom:calc(34px + env(safe-area-inset-bottom,0px))}
+}
+.num{align-content:start}
+.num span{min-height:1.5em}
+.awards{margin-top:16px;background:var(--card);border-radius:20px;padding:clamp(22px,3vw,40px);display:grid;gap:clamp(28px,4vw,44px)}
+.awards__group{display:grid;gap:10px}
+.awards h3{font-size:clamp(24px,2.4vw,32px)}
+.awards p{color:var(--mut);font-size:17px;max-width:60ch}
+.badges{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:20px 12px}
+.badges li{display:grid;justify-items:center;gap:10px;text-align:center}
+.badges img{width:96px;height:96px;transition:transform .3s var(--ease)}
+.badges li:hover img{transform:translateY(-4px)}
+.badges span{font:500 13px/1.3 var(--body);color:var(--mut);direction:ltr}
+.js .badges li{opacity:0;scale:.9;transition:opacity .5s var(--ease),scale .6s var(--ease)}
+.js .awards.in .badges li{opacity:1;scale:1}
+@media (max-width:520px){.badges{grid-template-columns:repeat(3,minmax(0,1fr))}.badges img{width:80px;height:80px}}
+@media (prefers-reduced-motion:reduce){.js .badges li{opacity:1;scale:1;transition:none}}
+/* the beats are placed from the shoe outward (not from the screen edges), so they sit beside it at every screen width */
+:root{--shoe:min(88vw,66svh);--beside:calc(var(--shoe) * .31 + 20px)}
+@media (min-width:761px){
+  #ch-rotate .beat,#ch-pods .beat{top:50%!important;translate:0 calc(-50% + var(--by,0px));width:min(340px,calc(50vw - var(--beside) - 24px))}
+  .beats .b-r{right:auto;left:calc(50% + var(--beside))}
+  .beats .b-l{left:auto;right:calc(50% + var(--beside))}
+  .seq{padding-bottom:calc(38px + env(safe-area-inset-bottom,0px))}
+  .rail{top:auto;bottom:14px;right:50%;translate:50% 0;grid-auto-flow:column}
+}
+
+/* ===== production additions (form, footer) ===== */
+.bar__tel{text-decoration:none}
+.lead .tel{text-decoration:none}
+.skip{position:absolute;right:12px;top:-60px;z-index:100;background:#fff;color:var(--ink);padding:10px 16px;border-radius:10px;font-weight:700}
+.skip:focus{top:12px}
+.f-field{display:grid;gap:6px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.f-row{grid-template-columns:1fr}}
+.f-field label,.f-legend{font:500 15px var(--body);color:var(--mut)}
+.err{margin:0;font-size:14px;color:#b3261e}
+.err[hidden]{display:none}
+input[aria-invalid="true"]{border-color:#b3261e}
+.radios{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0;padding:0}
+.radios legend{padding:0;margin-bottom:6px}
+.radio input{position:absolute;opacity:0;width:1px;height:1px}
+.radio label{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--ground-2);cursor:pointer;font:500 16px var(--body);color:var(--ink);transition:border-color .2s,background-color .2s}
+.radio input:checked+label{border-color:var(--blue);background:#e8f0ff;color:var(--blue)}
+.radio input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
+.consent a{color:var(--blue)}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.lead-thanks{background:var(--card);border-radius:24px;padding:clamp(26px,3vw,40px);text-align:center}
+.lead-thanks[hidden],#lead-form[hidden]{display:none}
+.lead-thanks h3{font:400 clamp(26px,2.6vw,34px)/1.2 var(--display);margin-bottom:10px}
+.lead-thanks p{color:var(--mut)}
+footer{padding-block:clamp(40px,5vw,64px) calc(32px + env(safe-area-inset-bottom,0px))}
+.foot{display:grid;gap:26px}
+.foot__top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+.foot__logo{height:30px;width:auto}
+.foot__links{display:flex;flex-wrap:wrap;gap:10px 24px}
+.foot__links a{color:#d6e0f2;text-decoration:none;font-size:15px}
+.foot__links a:hover{color:#fff;text-decoration:underline}
+.foot__disc{margin:0;color:#9fb0cf;font-size:13.5px;line-height:1.7;max-width:780px}
+.foot__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);color:#9fb0cf;font-size:14px}
+.foot__base a{color:#fff;text-decoration:none;font-weight:700}
+
+/* ===== portfolio demo build: demo notice + toast ===== */
+.demo-msg{margin:0;padding:12px 16px;border-radius:12px;background:#e8f0ff;border:1.5px solid var(--blue);color:var(--ink);font-weight:600;font-size:15px;line-height:1.5}
+.lead .demo-msg{max-width:none;margin:0}
+.demo-msg[hidden]{display:none}
+.demo-toast{position:fixed;left:50%;bottom:24px;z-index:100;transform:translate(-50%,20px);max-width:min(92vw,520px);padding:14px 20px;border-radius:14px;
+  background:var(--navy);color:#fff;font:500 16px/1.5 var(--body);text-align:center;box-shadow:0 18px 40px -12px rgba(10,31,77,.5);
+  opacity:0;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.demo-toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<a class="skip" href="#lead">דילוג לטופס בדיקת ההתאמה</a>
+<header class="bar" aria-label="ניווט">
+  <div class="bar__in wrap">
+    <a href="#ch-rotate" aria-label="אפוסתרפיה, לראש העמוד"><img class="bar__logo" src="./img/logo-dark.png" alt="AposTherapy אפוסתרפיה" width="660" height="150"></a>
+    <div class="bar__side">
+      <a class="bar__tel" href="#lead" role="button" data-demo-phone><b>*</b>0000</a>
+      <a class="btn" href="#lead">בדיקת התאמה</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- 1. the shoe turns with the scroll -->
+  <section class="pin" id="ch-rotate" data-pin aria-label="Apos 4">
+    <div class="pin__stage">
+      <div class="seq"><canvas id="rot" width="760" height="760" aria-label="נעל Apos 4 מסתובבת" role="img"></canvas></div>
+      <div class="hero-copy" data-range="0 0.22" data-mode="out">
+        <span class="kicker">חדש: מערכת ההליכה Apos 4</span>
+        <h1 class="hero-title">לנצח את הכאב <span>בהליכה</span></h1>
+        <p class="hero-sub">טיפול לא ניתוחי ולא תרופתי לכאבי ברכיים, גב, ירך וקרסול.</p>
+        <a class="btn hero-cta" href="#lead">בדקו התאמה ללא עלות</a>
+      </div>
+      <div class="rail" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="beats">
+        <p class="beat b-r" data-range="0.24 0.48">מותאם אישית<small>הפיזיותרפיסט מכייל את המערכת לפי ממצאי מעבדת ההליכה</small></p>
+        <p class="beat b-l" data-range="0.50 0.74">בבית, בתוך השגרה<small>כשעה ביום של נעילת המערכת, מתוכה כ-10 דקות הליכה</small></p>
+        <p class="beat b-r" data-range="0.76 1.01">בהשתתפות כל קופות החולים<small>ומשרד הביטחון</small></p>
+      </div>
+      <div class="scrollhint" data-range="0 0.08" data-mode="out">גללו כדי לסובב<span></span></div>
+    </div>
+  </section>
+
+  <!-- 2. the pods click onto the sole -->
+  <section class="pin" id="ch-pods" data-pin aria-label="הסוד בסוליה">
+    <div class="pin__stage">
+      <div class="seq"><canvas id="pods" width="760" height="760" aria-label="היחידות הקמורות מתחברות לסוליית הנעל" role="img"></canvas></div>
+      <div class="pods-head" data-range="0 0.3" data-mode="out">
+        <h2>הסוד מתחת לרגל</h2>
+        <p>גללו וראו איך זה בנוי</p>
+      </div>
+      <div class="rail" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="beats">
+        <p class="beat b-r" data-range="0.30 0.55">שתי יחידות קמורות<small>מוצמדות לסוליית נעל ייעודית</small></p>
+        <p class="beat b-l" data-range="0.57 0.80">אחת בעקב, אחת בכרית כף הרגל<small>כך העומס מוסט מהאזור הכואב</small></p>
+        <p class="beat b-r" data-range="0.82 1.01">ממוקמות במיוחד בשבילכם<small>במגוון קמירויות, רמות קושי ומשקלים</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. how it works -->
+  <section id="ch-how" aria-labelledby="how-title">
+    <div class="wrap how">
+      <div class="how__media" aria-hidden="true">
+        <img src="./img/walk-back.webp" alt="" class="on" data-step="0" width="1800" height="1200">
+        <img src="./img/walk-side.webp" alt="" data-step="1" width="1800" height="1200">
+        <img src="./img/kitchen.webp" alt="" data-step="2" width="1800" height="1122">
+      </div>
+      <div class="how__steps">
+        <h2 id="how-title" class="rv how__title">איך זה עובד</h2>
+        <article class="step rv" data-step="0">
+          <h3>העומס זז מהמקום שכואב</h3>
+          <p>היחידות הקמורות משנות את נקודת המגע של כף הרגל עם הקרקע. העומס מוסט מהאזור הפגוע במפרק, כבר מהצעד הראשון.</p>
+          <img class="mobile-img" src="./img/walk-back.webp" alt="הליכה עם נעלי Apos 4, מבט מאחור" loading="lazy" width="1800" height="1200">
+        </article>
+        <article class="step rv" data-step="1">
+          <h3>השרירים מתאמנים בכל צעד</h3>
+          <p class="quote">עשר דקות הליכה עם המערכת הן אלפי תרגולים של השרירים המייצבים את הגב והמפרקים.</p>
+          <p>עם הזמן הגוף לומד דפוסי תנועה נכונים יותר.</p>
+          <img class="mobile-img" src="./img/walk-side.webp" alt="הליכה עם נעלי Apos 4" loading="lazy" width="1800" height="1200">
+        </article>
+        <article class="step rv" data-step="2">
+          <h3>קורה בבית, בתוך היום</h3>
+          <p>אין צורך לפנות זמן מיוחד. נועלים את המערכת בזמן הליכה, קימה מישיבה ועמידה, בבית או בעבודה, ובודקים התקדמות במרכזי אפוסתרפיה.</p>
+          <img class="mobile-img" src="./img/kitchen.webp" alt="נעילת Apos 4 בבית, במטבח" loading="lazy" width="1800" height="1122">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. proof -->
+  <section id="ch-proof" aria-labelledby="proof-title">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2 id="proof-title">פותח בישראל. נבדק במחקר.</h2>
+        <p>מערכת ההליכה פותחה בישראל ונבדקה במחקרים קליניים לאורך יותר מ-20 שנה.</p>
+      </div>
+      <div class="nums">
+        <div class="num rv"><b data-count="250000">0<em>+</em></b><span>מטופלים בארץ ובעולם</span></div>
+        <div class="num rv"><b data-count="21">0<em>+</em></b><span>שנות מחקר</span></div>
+        <div class="num rv"><b data-count="70">0<em>+</em></b><span>פרסומים מדעיים</span></div>
+        <div class="num rv"><b data-count="5">0</b><span>מרכזים בישראל</span></div>
+      </div>
+      <div class="awards rv">
+        <div class="awards__group">
+          <h3>אישורים רפואיים</h3>
+          <p>המערכת נושאת אישור אמ״ר של משרד הבריאות ותו CE, ורשומה במרשמי ה-FDA.</p>
+          <ul class="badges"><li><img src="./img/badges/fda.webp" alt="FDA Cleared" width="240" height="240" loading="lazy"><span>FDA Cleared</span></li><li><img src="./img/badges/ce.webp" alt="CE Cleared" width="240" height="240" loading="lazy"><span>CE Cleared</span></li><li><img src="./img/badges/nice.webp" alt="NICE Recommended" width="240" height="240" loading="lazy"><span>NICE Recommended</span></li><li><img src="./img/badges/eular.webp" alt="EULAR Recommended" width="240" height="240" loading="lazy"><span>EULAR Recommended</span></li><li><img src="./img/badges/doc.webp" alt="Evidence-Based Results" width="240" height="240" loading="lazy"><span>Evidence-Based Results</span></li></ul>
+        </div>
+        <div class="awards__group">
+          <h3>פרסים בינלאומיים</h3>
+          <ul class="badges"><li><img src="./img/badges/wfa.webp" alt="World Future Awards 2025" width="240" height="240" loading="lazy"><span>World Future Awards 2025</span></li><li><img src="./img/badges/ny100.webp" alt="NY100 Awards 2025" width="240" height="240" loading="lazy"><span>NY100 Awards 2025</span></li><li><img src="./img/badges/ie100.webp" alt="IE 100 Awards 2025" width="240" height="240" loading="lazy"><span>IE 100 Awards 2025</span></li><li><img src="./img/badges/pbgh.webp" alt="Prestigious Innovations Award" width="240" height="240" loading="lazy"><span>Prestigious Innovations Award</span></li><li><img src="./img/badges/ghp.webp" alt="GHP Best Pain Relief Device" width="240" height="240" loading="lazy"><span>GHP Best Pain Relief Device</span></li><li><img src="./img/badges/gra.webp" alt="Global Recognition Awards" width="240" height="240" loading="lazy"><span>Global Recognition Awards</span></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. two versions + the parts -->
+  <section id="ch-versions" aria-labelledby="ver-title">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2 id="ver-title">שרוכים או סקוטש</h2>
+        <p>Apos 4 מגיעה בשתי גרסאות. אותה מערכת, אותה התאמה אישית.</p>
+      </div>
+      <div class="duo">
+        <figure class="card rv"><div class="card__img"><img src="./img/lacing.webp" alt="נעל Apos 4 בגרסת שרוכים" loading="lazy" width="1500" height="1000"></div><figcaption><b>גרסת שרוכים</b><span>מראה של נעל ספורט רגילה</span></figcaption></figure>
+        <figure class="card rv"><div class="card__img"><img src="./img/velcro.webp" alt="נעל Apos 4 בגרסת סקוטש" loading="lazy" width="1500" height="1000"></div><figcaption><b>גרסת סקוטש</b><span>נועלים וסוגרים ביד אחת</span></figcaption></figure>
+      </div>
+      <div class="device rv">
+        <img src="./img/device.webp" alt="רכיבי מערכת Apos 4: סוליה, יחידות קמורות ונעל" loading="lazy" width="1800" height="759">
+        <div><h3>כל החלקים, מכוילים לכם</h3><p>היחידות הביומכניות מגיעות במגוון קמירויות, רמות קושי ומשקלים. הפיזיותרפיסט ממקם ומכייל אותן לפי מעבדת ההליכה והבדיקה הקלינית, ומכייל מחדש בבדיקות המעקב.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. lead -->
+  <section id="lead" aria-labelledby="lead-title">
+    <div class="wrap lead">
+      <div class="rv">
+        <h2 id="lead-title">בדקו התאמה ללא עלות</h2>
+        <p>השאירו פרטים והצוות הרפואי יחזור אליכם. הבדיקה כוללת אבחון במעבדת ההליכה.</p>
+        <a class="tel" href="#lead" role="button" data-demo-phone><b>*</b>0000</a>
+      </div>
+      <div class="rv">
+      <form id="lead-form" action="#" method="post" novalidate>
+        <h3>נחזור אליכם בהקדם</h3>
+        <p class="note-req" style="margin:0;font-size:14px;color:var(--mut)">שם, טלפון ואזור הם שדות חובה</p>
+        <div class="f-field">
+          <label for="f4-name">שם מלא</label>
+          <input id="f4-name" name="name" type="text" autocomplete="name" placeholder="ישראל ישראלי" required aria-required="true" aria-describedby="err-name">
+          <p class="err" id="err-name" role="alert" hidden>יש להזין שם פרטי ושם משפחה</p>
+        </div>
+        <div class="f-row">
+          <div class="f-field">
+            <label for="f4-phone">טלפון</label>
+            <input id="f4-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05X-XXXXXXX" required aria-required="true" aria-describedby="err-phone">
+            <p class="err" id="err-phone" role="alert" hidden>יש להזין מספר טלפון תקין</p>
+          </div>
+          <div class="f-field">
+            <label for="f4-email">כתובת מייל (לא חובה)</label>
+            <input id="f4-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="כתובת המייל שלכם" aria-describedby="err-email">
+            <p class="err" id="err-email" role="alert" hidden>כתובת המייל לא תקינה</p>
+          </div>
+        </div>
+        <fieldset class="radios">
+          <legend class="f-legend">אזור מגורים</legend>
+          <span class="radio"><input type="radio" id="a4-north" name="ezor" value="צפון"><label for="a4-north">צפון</label></span>
+          <span class="radio"><input type="radio" id="a4-center" name="ezor" value="מרכז"><label for="a4-center">מרכז</label></span>
+          <span class="radio"><input type="radio" id="a4-south" name="ezor" value="דרום"><label for="a4-south">דרום</label></span>
+          <span class="radio"><input type="radio" id="a4-jlm" name="ezor" value="ירושלים"><label for="a4-jlm">ירושלים</label></span>
+        </fieldset>
+        <p class="err" id="err-ezor" role="alert" hidden>יש לבחור אזור מגורים</p>
+        <label class="consent" for="f4-accept"><input type="checkbox" id="f4-accept" name="accept"><span>אני מאשר/ת את <a href="#" data-demo-link>מדיניות הפרטיות</a> וקבלת מידע, לרבות תוכן שיווקי, בהתאם לתנאי השימוש באתר.</span></label>
+        <div class="hp" aria-hidden="true"><label for="f4-company">אל תמלאו שדה זה</label><input id="f4-company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn--lg" type="submit">שלחו ונחזור אליכם</button>
+        <p class="demo-msg" id="demo-msg" role="status" aria-live="polite" hidden></p>
+      </form>
+      <div class="lead-thanks" id="lead-thanks" hidden tabindex="-1">
+        <h3>תודה, הפרטים התקבלו</h3>
+        <p>נציג מהצוות הרפואי יחזור אליכם בהקדם.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot__top">
+      <img class="foot__logo" src="./img/logo-white.png" alt="AposTherapy אפוסתרפיה" width="624" height="205" loading="lazy" decoding="async">
+      <nav class="foot__links" aria-label="קישורים">
+        <a href="#" data-demo-link>האתר הראשי</a>
+        <a href="#" data-demo-link>איתור סניף</a>
+        <a href="#" data-demo-link>שאלות ותשובות</a>
+        <a href="#" data-demo-link>מדיניות פרטיות</a>
+        <a href="#" data-demo-link>יצירת קשר</a>
+        <a href="./accessibility.html">הצהרת נגישות</a>
+      </nav>
+    </div>
+    <p class="foot__disc">תוצאות הטיפול עשויות להשתנות ממטופל למטופל. אין באמור בעמוד זה כדי להניא מטיפולים אחרים או מהתערבות כירורגית שהומלצה. המידע אינו מהווה תחליף לייעוץ רפואי.</p>
+    <p class="foot__disc">עותק הדגמה לתיק עבודות: הטופס, החיוג והקישורים החיצוניים מנותקים. Built by Gal Asulin.</p>
+    <div class="foot__base"><span>© 2026 AposTherapy. כל הזכויות שמורות.</span><a href="#lead" role="button" data-demo-phone><b>*</b>0000</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- frame sequences ---------- */
+  function sequence(canvasId, dir, count){
+    var c=document.getElementById(canvasId), ctx=c.getContext('2d'), frames=new Array(count), drawn=-1;
+    function pad(n){return n<10?'0'+n:''+n}
+    function load(i){ if(frames[i]) return; var im=new Image(); im.decoding='async'; im.src=dir+pad(i+1)+'.webp'; im.onload=function(){ if(i===want) draw(i,true); }; frames[i]=im; }
+    var want=0;
+    function draw(i,force){
+      want=i; var im=frames[i];
+      if(!im||!im.complete||!im.naturalWidth){ // nearest loaded frame so the canvas never goes blank
+        for(var d=1;d<count;d++){ var a=frames[i-d],b=frames[i+d]; if(a&&a.complete&&a.naturalWidth){im=a;break} if(b&&b.complete&&b.naturalWidth){im=b;break} }
+      }
+      if(!im||(!force&&i===drawn)) return;
+      ctx.clearRect(0,0,c.width,c.height); ctx.drawImage(im,0,0,c.width,c.height); drawn=i;
+    }
+    load(0); load(count-1);
+    // first frame immediately, the rest in order of likely need
+    setTimeout(function(){ for(var i=0;i<count;i+=4) load(i); for(var j=0;j<count;j++) load(j); }, 300);
+    frames[0].onload=function(){ draw(0,true) };
+    return {count:count, draw:draw};
+  }
+  var rot=sequence('rot','frames/rot-a/',56);
+  var pods=sequence('pods','frames/pods-a/',87);
+
+  /* ---------- pinned progress ---------- */
+  var pins=[].slice.call(document.querySelectorAll('[data-pin]')), bar=document.querySelector('.bar');
+  function progress(el){ var r=el.getBoundingClientRect(), h=el.offsetHeight-innerHeight; return h>0?Math.min(1,Math.max(0,-r.top/h)):0 }
+  function ranged(container,p){
+    container.querySelectorAll('[data-range]').forEach(function(el){
+      var r=el.getAttribute('data-range').split(' ').map(parseFloat), out=el.getAttribute('data-mode')==='out', o;
+      if(out){ o=p<=r[0]?1:p>=r[1]?0:1-(p-r[0])/(r[1]-r[0]); }
+      else { var fade=.09; o=p<r[0]?0:p<r[0]+fade?(p-r[0])/fade:p<r[1]-fade?1:p<r[1]?(r[1]-p)/fade:0; }
+      el.style.opacity=o.toFixed(3); if(!out) el.style.setProperty('--sc',(.95+.05*o).toFixed(3)); el.style.visibility=o<.02?'hidden':'';
+      el.style.setProperty('--by',(out?-(1-o)*40:(1-o)*30).toFixed(1)+'px');
+    });
+  }
+  var cur=[0,0], running=false, first=true;
+  function rails(container,p){
+    var beats=container.querySelectorAll('.beat'), dots=container.querySelectorAll('.rail i'), any=0;
+    beats.forEach(function(b,i){ var o=parseFloat(b.style.opacity||0); if(dots[i]) dots[i].classList.toggle('on',o>.5); any=Math.max(any,o) });
+    var r=container.querySelector('.rail'); if(r) r.style.setProperty('--ro',p>.2&&p<.995?1:0);
+  }
+  function frame(){
+    var t=[progress(pins[0]),progress(pins[1])], moving=false;
+    for(var k=0;k<2;k++){ var d=t[k]-cur[k]; if(!first&&Math.abs(d)>.0004){ cur[k]+=d*.12; moving=true } else cur[k]=t[k] }
+    first=false;
+    var p1=cur[0], p2=cur[1];
+    rot.draw(Math.min(rot.count-1,Math.round(p1*(rot.count-1))));
+    pods.draw(Math.min(pods.count-1,Math.round(Math.min(1,p2*1.15)*(pods.count-1))));
+    ranged(pins[0],p1); ranged(pins[1],p2); rails(pins[0],p1); rails(pins[1],p2);
+    bar.classList.toggle('scrolled',scrollY>40);
+    if(moving) requestAnimationFrame(frame); else running=false;
+  }
+  function kick(){ if(!running){ running=true; requestAnimationFrame(frame) } }
+  if(reduce){
+    setTimeout(function(){ rot.draw(0,true); pods.draw(86,true) },500);
+    document.querySelectorAll('[data-range]').forEach(function(el){el.style.opacity=1;el.style.position='relative'});
+  } else {
+    addEventListener('scroll',kick,{passive:true}); addEventListener('resize',kick); kick();
+  }
+
+  /* ---------- reveals, the image swap in "how", counters ---------- */
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target) } })},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+    var imgs=document.querySelectorAll('.how__media img');
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ var s=e.target.getAttribute('data-step'); imgs.forEach(function(im){ im.classList.toggle('on',im.getAttribute('data-step')===s) }) } })},{rootMargin:'-45% 0px -45% 0px'});
+    document.querySelectorAll('.step').forEach(function(el){so.observe(el)});
+    var co=new IntersectionObserver(function(es){es.forEach(function(e){ if(!e.isIntersecting) return; co.unobserve(e.target);
+      var el=e.target, to=+el.getAttribute('data-count'), em=el.querySelector('em'), t0=performance.now();
+      (function tick(t){ var k=Math.min(1,(t-t0)/1400), v=Math.round(to*(1-Math.pow(1-k,3)));
+        el.firstChild.nodeValue=v.toLocaleString('en-US'); if(k<1) requestAnimationFrame(tick) })(t0);
+    })},{threshold:.3});
+    document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el)});
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+    document.querySelectorAll('[data-count]').forEach(function(el){el.firstChild.nodeValue=(+el.getAttribute('data-count')).toLocaleString('en-US')});
+  }
+
+  /* ---------- the form lives in demo-form.js (never sends) ---------- */
+})();
+</script>
+<script src="./demo-form.js" defer></script>
+
+
+</body>
+</html>

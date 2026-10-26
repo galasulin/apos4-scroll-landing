@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>הסדרי נגישות (עותק הדגמה) | אפוסתרפיה</title>
+    <meta name="description" content="עמוד נגישות מקוצר לעותק ההדגמה של דף הנחיתה: מה נבנה בדף עצמו כדי לעמוד בתקן הישראלי 5568 ברמה AA." />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://galasulin.github.io/apos4-scroll-landing/accessibility.html" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      html,body{font-family:'Heebo',system-ui,sans-serif;margin:0;background:#f7f9fb;color:#16202b;line-height:1.75}
+      .container{max-width:860px;margin:0 auto;padding:40px 22px}
+      .logo{margin-bottom:28px}
+      .logo img{max-height:48px;width:auto;display:block}
+      h1{font-size:clamp(26px,4vw,32px);font-weight:700;margin:0 0 20px;color:#0a2a5e}
+      h2{font-size:20px;color:#0a2a5e;margin:28px 0 10px}
+      ul{padding-inline-start:22px}
+      li{margin:6px 0}
+      .note{background:#fff4e5;border:2px solid #f0a202;border-radius:10px;padding:14px 18px;color:#4a3000}
+      a{color:#1d4ed8}
+      a:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;border-radius:4px}
+      .back-link{display:inline-flex;align-items:center;min-height:44px;margin-top:32px;font-weight:600}
+      .skip-link{position:absolute;right:8px;top:-60px;z-index:100;padding:12px 20px;background:#0a2a5e;color:#fff;font-weight:700;text-decoration:none;border-radius:0 0 8px 8px;transition:top .15s}
+      .skip-link:focus{top:0}
+      @media (prefers-reduced-motion: reduce){*{transition-duration:.001ms!important;animation-duration:.001ms!important}}
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#acc-content">דילוג לתוכן</a>
+    <main id="acc-content" class="container">
+      <div class="logo"><img src="./img/logo-dark.png" alt="לוגו אפוסתרפיה" width="211" height="48" /></div>
+      <h1>הסדרי נגישות</h1>
+
+      <p class="note">
+        זהו עותק הדגמה של דף הנחיתה לצורך תיק עבודות. בגרסה החיה מתפרסמת הצהרת נגישות מלאה,
+        כולל פרטי הקשר של רכז/ת הנגישות והסדרי הנגישות בסניפים. הפרטים האלה הוסרו מהעותק הזה.
+      </p>
+
+      <h2>מה נבנה בדף עצמו</h2>
+      <ul>
+        <li>קישור "דילוג לתוכן הראשי" שמופיע בניווט מקלדת.</li>
+        <li>מסגרת פוקוס בולטת לכל רכיב אינטראקטיבי, וניווט מלא במקלדת.</li>
+        <li>תוויות לכל שדות הטופס, קבוצת בחירה מסומנת לאזור המגורים, והודעות שגיאה שמוקראות לקוראי מסך.</li>
+        <li>אזורי מגע בגודל 44 על 44 פיקסלים לפחות בכפתורים ובבחירות.</li>
+        <li>כיבוד הגדרת "הפחתת תנועה" של מערכת ההפעלה: אנימציות ומעברים מכובים.</li>
+        <li>טקסט חלופי לתמונות, ומידות קבועות לתמונות כדי שהעמוד לא יקפוץ בזמן הטעינה.</li>
+        <li>צבע הודעות השגיאה עומד ביחס הניגודיות של רמה AA.</li>
+        <li>הודעה חלופית למי שגולש בלי JavaScript.</li>
+        <li>קישור דילוג ישיר לטופס בדיקת ההתאמה, ושדות שגויים מסומנים ב-<code>aria-invalid</code> ומקבלים פוקוס.</li>
+        <li>כשמוגדרת "הפחתת תנועה", פרקי הגלילה הופכים לתמונות סטטיות והטקסטים מוצגים במלואם.</li>
+      </ul>
+
+      <h2>תקן</h2>
+      <p>הדף נבנה לפי הנחיות התקן הישראלי ת"י 5568 ברמה AA, המבוסס על WCAG 2.0.</p>
+      <p>בגרסה החיה נטען גם תפריט נגישות של ספק חיצוני. בעותק ההדגמה הוא הוסר, כמו כל סקריפט חיצוני אחר.</p>
+
+      <a class="back-link" href="./index.html">חזרה לדף הראשי</a>
+    </main>
+  </body>
+</html>
