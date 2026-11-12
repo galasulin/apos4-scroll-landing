@@ -48,8 +48,8 @@
 <table>
   <tr>
     <td width="33%"><a href="assets/desktop-hero.png"><img src="assets/desktop-hero.png" width="100%" alt="ראש הדף"></a><br><sub><b>ראש הדף</b> · הפריים הראשון של הסיבוב מתחת לכותרת</sub></td>
-    <td width="33%"><a href="assets/scroll-1-attached.png"><img src="assets/scroll-1-attached.png" width="100%" alt="פרק הסיבוב"></a><br><sub><b>1 · הסיבוב</b> · הנעל באמצע הסיבוב, המסר האחרון על המסך</sub></td>
-    <td width="33%"><a href="assets/scroll-2-detached.png"><img src="assets/scroll-2-detached.png" width="100%" alt="היחידות מפורקות"></a><br><sub><b>2 · מפורק</b> · סוליה חשופה ורשת הכיול</sub></td>
+    <td width="33%"><a href="assets/scroll-1-attached.png"><img src="assets/scroll-1-attached.png" width="100%" alt="פרק הסיבוב"></a><br><sub><b>1 · מחובר</b> · המערכת כולה על הנעל, המסר האחרון של הסיבוב במלואו</sub></td>
+    <td width="33%"><a href="assets/scroll-2-detached.png"><img src="assets/scroll-2-detached.png" width="100%" alt="היחידות מפורקות"></a><br><sub><b>2 · מפורק</b> · היחידות מנותקות לגמרי, סוליה חשופה ורשת הכיול, הכיתוב במלואו</sub></td>
   </tr>
   <tr>
     <td width="33%"><a href="assets/scroll-3-snapping.png"><img src="assets/scroll-3-snapping.png" width="100%" alt="היחידות עפות פנימה"></a><br><sub><b>3 · מתחבר</b> · היחידות נכנסות מהצדדים</sub></td>

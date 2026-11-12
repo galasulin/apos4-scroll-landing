@@ -46,8 +46,8 @@
 <table>
   <tr>
     <td width="33%"><a href="assets/desktop-hero.png"><img src="assets/desktop-hero.png" width="100%" alt="Hero"></a><br><sub><b>Hero</b> · first frame of the turn under the headline</sub></td>
-    <td width="33%"><a href="assets/scroll-1-attached.png"><img src="assets/scroll-1-attached.png" width="100%" alt="Turn chapter"></a><br><sub><b>1 · The turn</b> · shoe mid-rotation, last beat on screen</sub></td>
-    <td width="33%"><a href="assets/scroll-2-detached.png"><img src="assets/scroll-2-detached.png" width="100%" alt="Pods apart"></a><br><sub><b>2 · Apart</b> · bare sole and calibration grid</sub></td>
+    <td width="33%"><a href="assets/scroll-1-attached.png"><img src="assets/scroll-1-attached.png" width="100%" alt="Turn chapter"></a><br><sub><b>1 · Attached</b> · the whole system on the shoe, the last caption of the turn in full</sub></td>
+    <td width="33%"><a href="assets/scroll-2-detached.png"><img src="assets/scroll-2-detached.png" width="100%" alt="Pods apart"></a><br><sub><b>2 · Apart</b> · pods fully off, bare sole and calibration grid, caption in full</sub></td>
   </tr>
   <tr>
     <td width="33%"><a href="assets/scroll-3-snapping.png"><img src="assets/scroll-3-snapping.png" width="100%" alt="Pods flying in"></a><br><sub><b>3 · Coming together</b> · pods fly in from the sides</sub></td>
